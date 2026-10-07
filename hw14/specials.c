@@ -5,13 +5,9 @@
  * David Ross
  */
 #include "specials.h"
-#include <stdio.h>
-
-
 
 
 int sum_order(const int prices[], int n) {
-    int total = 0;
     // Base case
     if (n <= 0) {
         return 0;
