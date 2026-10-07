@@ -1,0 +1,43 @@
+What are the base case and recursive case for your factorial?
+    The base case is n <= 1, while the recursive case returns n * factorial(n-1).
+What goes wrong if you omit the base case?
+    If you omit the base case, the functionn will continue to call itself until the stack overflows.
+When might a loop be a better fit than recursion for summing an order?
+    A loop would be better when a task is simple and repetitive, and recursion does not make the solution 
+    easier to read. I think summing an order would be more readable as a loop.
+
+Hand Trace factorial(4):
+factorial(4)
+    -> 4 * factorial(3)
+        -> 3 * factorial(2)
+            -> 2 * factorial(1)
+                -> factorial(1) = 1
+Stack unwinds
+factorial(1) = 1
+2 * 1 = 2 
+3 * 2 = 6  
+4 * 6 = 24 
+
+Hand Trace fib(4):
+fib(4) -> fib(3) + fib(2)
+    fib(3) -> fib(2) + fib(1)
+        fib(2) -> fib(1) + fib(0)
+            fib (1) = 1, fib(0) = 0
+
+stack partially unwinds
+fib(2) = 1 + 0 = 1
+fib(3) = 1 + 1 = 2
+    fib(2) calculation repeats, fib(2) = 1 + 0 = 1
+fib(4) = 2 + 1 = 3
+
+This repeats work because calculated values aren't saved. 
+This causes more repeats with larger n and can lead to painfully slow implementations.
+
+Part B questions:
+What does a function pointer store?
+    A function pointer stores a address of a function with specific parameters and a specific return type.
+    It can be used to call functions with the same parameters and return type.
+How can apply_op stay unchanged while the cafe changes which pricing rule runs?
+    Because apply_op is not modified during the function calls, it just calls either add_cents or percent_off_amount
+Name one real-world callback example that you can think of or learn about.
+    I used all sorts of callbacks with JavaScript, including one in the map() function I used quite often.

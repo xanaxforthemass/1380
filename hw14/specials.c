@@ -1,0 +1,57 @@
+/*
+ * Library containing three recursive functtions: one to sum orders from an array,
+ * one to calculate factorial of n, and ont to calculate a given exponent through recursive multiplication.
+ * specials.c
+ * David Ross
+ */
+#include "specials.h"
+#include <stdio.h>
+
+
+
+
+int sum_order(const int prices[], int n) {
+    int total = 0;
+    // Base case
+    if (n <= 0) {
+        return 0;
+    }
+     return prices[0] + sum_order(prices + 1, n - 1);
+}
+
+int factorial(int n) {
+    // Precondition: n >= 0
+    if (n < 0) {
+        return -1;
+    }
+    // Base case
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+int power(int base, int exp) {
+    // Precondition: exp >= 0
+    if (exp < 0) {
+        return -1;
+    }
+    // Base case
+    if (exp == 0) {
+        return 1;
+    }
+    return base * power(base, exp - 1);
+}
+
+
+int add_cents(int a, int b) {
+    return a + b;
+}
+
+int percent_off_amount(int price_cents, int percent) {
+     return (price_cents * percent) / 100;
+}
+
+int apply_op(int a, int b, price_op op) {
+    return op(a, b);
+}
