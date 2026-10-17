@@ -1,0 +1,27 @@
+Part A questions:
+If p is an int *, why does p + 1 usually add 4 bytes (not 1)? What would p + 1 add if p were a char *?
+    p  + 1 adds 4 bytes because C knows to progress an int pointer by sizeof(int), which is usually 4. p + 1 would add 1 byte, since a char is 1 byte.
+What does end - start mean when both pointers point into the same int array?
+    This gives you the number of int values in the array, assuming the start and end pointers actually point to the zeroth and final elements, respectively. 
+    Otherwise, you get the number of int values between them.
+Why is *(prices + 5) undefined behavior for an array of length 5, even if it compiles?
+    Because arrays are zero-indexed, this would cause you to "fall off" the end of the array. This is undefined behavior since you could end up modifying or accessing an unknown value in memory.
+
+Part B questions:
+How does drink_length know when to stop without being passed a length?
+    It stops once the while loop sees the string terminator, '\0'.
+When is a subscript prices[i] clearer than pointer increment, and when is a p++ walk a good fit?
+    I would use prices[i] in most cases, since it is easy to read. I would use the p++ walk if the current location in memory or pointer matters, such as the example with reverse_menu, 
+    where I had to keep track of the pointer for start and end.
+
+Hand Trace: For int arr[] = {10, 20, 30, 40, 50}; and int *p = arr + 2;, list *p, *(p + 1), *(p - 1), and (arr + 4) - p 
+
+    *p = 30,  *(p + 1) = 40, *(p - 1) = 20, (arr + 4) - p = 2
+
+Part C questions:
+
+Why is a one-line hand trace useful before you chase a bad pointer in the debugger?
+    A hand  trace is useful, as it can help prevent off-by-one errors or bad pointers without trying to hunt them down after undefined behavior by 
+    giving you an idea of where the pointer is pointing, and to what value.
+Why push to the remote in addition to uploading hw16.zip on Canvas?
+    So that I can access the files later on any computer (or share them with others), keep a backup/ history, and to practice using Git.

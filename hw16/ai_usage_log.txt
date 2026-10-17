@@ -1,0 +1,51 @@
+My prompt:
+printf("Address at index 0: %p \n", (void *) prices[0]);
+Would this work, or do I need an ampersand?
+
+You need the ampersand.
+
+printf("Address at index 0: %p\n", (void *)&prices[0]);
+
+Your version:
+
+(void *) prices[0]
+
+takes the integer value stored at index 0 and treats that integer as though it were an address. That is not what you want.
+
+These are the key differences:
+
+prices[0]    // value at index 0
+&prices[0]   // address of index 0
+prices       // also points to index 0
+
+So this is equivalent and a little cleaner:
+
+printf("Address at index 0: %p\n", (void *)prices);
+
+And %p expects a void *, which is why the cast to (void *) is appropriate.
+
+My thoughts on this response: I thought it was a good one! It explained the content well. I especially like that it pointed out the values of prices[0], &prices[0], and prices.
+
+Second prompt:
+I am working in a directory in my local repo. The repo already has a gitignore, do I need a  gitignore in this directory,   too?
+
+Response:
+Usually, no.
+A .gitignore in the repo root applies to files and folders inside subdirectories too.
+So if your repo looks like:
+repo/
+├── .gitignore
+├── hw14/
+│   ├── menu.c
+│   ├── main.c
+│   └── menu
+
+and the root .gitignore contains:
+menu
+*.o
+
+those ignore rules can apply inside hw14/ as well.
+You’d only need another .gitignore inside the subdirectory if you want rules that are specific to that folder or you want to organize ignore rules locally.
+One thing to remember: .gitignore only affects untracked files. If a file was already committed, adding it to .gitignore later won’t make Git stop tracking it.
+
+My thoughts: I thought this was a good response! I was pretty sure that was how the .gitignore worked, but wanted to be sure. I still created one per the assignment instructions.
