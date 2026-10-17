@@ -1,4 +1,22 @@
-My prompt:
+First prompt:
+is the string terminator, '\0', read as one character, similar to a newline?
+
+Response:
+Yes. '\0' is a single character value, just like '\n'.
+The difference is what that character means:
+'\n'   // newline character
+'\0'   // null character, numeric value 0
+
+In a C string:
+char word[] = "cat";
+
+memory actually contains:
+'c'  'a'  't'  '\0'
+
+So "cat" uses 4 bytes in a char array, even though strlen("cat") is 3 because strlen stops when it reaches '\0'.
+One useful distinction: '\0' is a character with value zero, while " \0 "-style double quotes would make it part of a string literal.
+
+Second prompt:
 printf("Address at index 0: %p \n", (void *) prices[0]);
 Would this work, or do I need an ampersand?
 
@@ -26,7 +44,7 @@ And %p expects a void *, which is why the cast to (void *) is appropriate.
 
 My thoughts on this response: I thought it was a good one! It explained the content well. I especially like that it pointed out the values of prices[0], &prices[0], and prices.
 
-Second prompt:
+Third prompt:
 I am working in a directory in my local repo. The repo already has a gitignore, do I need a  gitignore in this directory,   too?
 
 Response:

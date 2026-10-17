@@ -18,6 +18,27 @@ Hand Trace: For int arr[] = {10, 20, 30, 40, 50}; and int *p = arr + 2;, list *p
 
     *p = 30,  *(p + 1) = 40, *(p - 1) = 20, (arr + 4) - p = 2
 
+Git stuff:
+ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+david@DESKTOP-KKPTGSC:~/c23/general/hw16$ git log --oneline
+ab2bb92 (HEAD -> main) Add main demo, Q&A file, & AI usage file
+3efe858 Add menu library, menu headers & .gitignore
+fa8ac71 (origin/main, origin/HEAD) proofread Q & A
+1cd5a4b add main demo and answered questions
+3766bda add library, headers, and gitignore
+fed0108 Make small spelling fixes before submission
+71d4154 Add main demo
+885b2e5 add function library and assignment Q&A
+6376308 add .gitignore and library headers
+56764de remove accidentally nested repo
+5f438a3 added .gitignore and shopping.c
+a581aa5 added shopping.c and .gitignore to new repo
+
 Part C questions:
 
 Why is a one-line hand trace useful before you chase a bad pointer in the debugger?
