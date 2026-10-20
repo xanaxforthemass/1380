@@ -17,3 +17,35 @@ Why does free_log take int ** instead of int *?
     Because we need to change the pointer to NULL, so we need its address to do so.
 If you malloc inside a function and return without free and without handing the pointer back to the caller, what happened to that block?
     That block just became a memory leak. The memory was allocated, but can never be freed because it is not available to the caller.
+
+Part C git stuff:
+
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../hw16/hw16.zip
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+--------------------
+
+git log --oneline
+8837683 (HEAD -> main) add main demo, Q&A, and AI usage log
+4bc5b7e add library, headers, and gitignore
+3c0ddc3 (origin/main, origin/HEAD) Add AI prompt and final touches to Q&A
+ab2bb92 Add main demo, Q&A file, & AI usage file
+3efe858 Add menu library, menu headers & .gitignore
+fa8ac71 proofread Q & A
+1cd5a4b add main demo and answered questions
+3766bda add library, headers, and gitignore
+fed0108 Make small spelling fixes before submission
+71d4154 Add main demo
+885b2e5 add function library and assignment Q&A
+6376308 add .gitignore and library headers
+56764de remove accidentally nested repo
+5f438a3 added .gitignore and shopping.c
+a581aa5 added shopping.c and .gitignore to new repo
