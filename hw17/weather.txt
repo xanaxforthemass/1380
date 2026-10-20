@@ -1,0 +1,19 @@
+Why use malloc for the log instead of int log[100]; when the shift might record 8 readings or 800?
+    Because the array of 100 cannot fit any number of records over 100. a malloc, however, can fit up to 800 as long as n is set correctly.
+What does malloc return on failure? Why must you check before you write through the pointer?
+    malloc returns NULL on a failure. You must check before writing through a pointer because if it failed, then the memory was not actually allocated and you could end up trying
+    to dereference or modify NULL, which is undefined behavior.
+After make_log returns, who owns that memory, and when does it go away if you never call free?
+    After make_log, the program owns the memory on the heap, and it will not go away without calling free. Our textbook referred to this as a memory leak.
+
+Part B Hand trace:
+    Before the free, p would be the address of the zeroth value p[0], and *p would be the value there, which is 68. After free_log(&p), p would be NULL, and any attempt to dereference *p 
+    would be undefined, since p is a NULL pointer.
+
+Part B questions:
+How does calloc(n, sizeof(int)) differ from malloc(n * sizeof(int)) in what you can assume about the bytes?
+    With the calloc call, you can assume the bytes equal zero in each spot in the array. In malloc, we cannot assume anything. The memory is allocated, but the values are not guaranteed.
+Why does free_log take int ** instead of int *?
+    Because we need to change the pointer to NULL, so we need its address to do so.
+If you malloc inside a function and return without free and without handing the pointer back to the caller, what happened to that block?
+    That block just became a memory leak. The memory was allocated, but can never be freed because it is not available to the caller.
