@@ -1,0 +1,43 @@
+Part A answers:
+
+Valid indices for an array of length n run from which value to which value? What does C do if you read scores[n]?
+    Valid indices run from zero to n-1. If you try to read scores[n], the behavior is undefined in C.
+Why does sizeof(scores) / sizeof(scores[0]) work in main on the actual array, but fail inside a function that took const int scores[]?
+    Because in a function, this is treated like a pointer instead of the actual array. In main, it works since it takes the size of the actual array.
+For int board[3][4], which element is board[1][2] (row, column, and a one-sentence note on row-major layout)?
+    This is the second row, third column. This board has 3 rows and 4 columns.
+
+Part B answers:
+
+Why must a function that receives an array also receive the length?
+    Because sizeof(scores) / sizeof(scores[0]) does not work inside the function. The size being passed in is useful when making for loops to traverse the array.
+In your 2D print loop, which index is the row and which is the column? What goes wrong if you swap them?
+    In my print loop, the first index is the row and the second is the column. If they are swapped, The program could crash out of bounds, since I have more columns than rows.
+
+
+GDB transcript:
+
+Breakpoint 1, main () at main.c:5
+5       int main(void) {
+(gdb) next
+7           int scores[] = {67, 77, 71, 52, 63};
+(gdb) next
+8           int size = sizeof(scores) / sizeof(scores[0]);
+(gdb) next
+9           printf("Size of scores[]: %d\n", size);
+(gdb) print scores[1]
+$1 = 77
+(gdb) print size
+$2 = 5
+(gdb) q
+A debugging session is active.
+
+        Inferior 1 [process 31258] will be killed.
+
+Quit anyway? (y or n) y
+
+Part C answers:
+What does compiling with -g add that GDB needs? What happens if you forget -g?
+    It adds debugging information that GDB can use to help itself function. Without it, I kept seeing "No debugging symbols found".
+Why push to the remote in addition to uploading hw19.zip on Canvas?
+    So that I can access the files later on any computer (or share them with others), keep a backup/ history, and to practice using Git.
