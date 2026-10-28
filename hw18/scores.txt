@@ -14,6 +14,7 @@ Why must a function that receives an array also receive the length?
 In your 2D print loop, which index is the row and which is the column? What goes wrong if you swap them?
     In my print loop, the first index is the row and the second is the column. If they are swapped, The program could crash out of bounds, since I have more columns than rows.
 
+Part C Stuff:
 
 GDB transcript:
 
@@ -36,8 +37,23 @@ A debugging session is active.
 
 Quit anyway? (y or n) y
 
+Git stuff:
+
+git log --oneline
+db8ea93 (HEAD -> main) add main demo and Q&A file
+3bef43e add gitignore, ai log, library and headers
+05ae18b (origin/main, origin/HEAD) add git stuff to weather.txt
+8837683 add main demo, Q&A, and AI usage log
+4bc5b7e add library, headers, and gitignore
+3c0ddc3 Add AI prompt and final touches to Q&A
+ab2bb92 Add main demo, Q&A file, & AI usage file
+3efe858 Add menu library, menu headers & .gitignore
+fa8ac71 proofread Q & A
+
+
+
 Part C answers:
 What does compiling with -g add that GDB needs? What happens if you forget -g?
-    It adds debugging information that GDB can use to help itself function. Without it, I kept seeing "No debugging symbols found".
+    It adds debugging information that GDB can use to connect the compiled program to functions and variables. Without it, I kept seeing "No debugging symbols found".
 Why push to the remote in addition to uploading hw19.zip on Canvas?
     So that I can access the files later on any computer (or share them with others), keep a backup/ history, and to practice using Git.
