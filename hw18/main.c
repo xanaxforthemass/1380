@@ -1,33 +1,80 @@
-#include <stdio.h>
+/*
+ * Demo functions for reading indices in a weather log, including functions for
+ * creating logs that dynamically allocate memory or modify dynamic arrays.
+ * David Ross
+ * main.c
+ */
+
 #include <stdlib.h>
-#include "scores.h"
+#include <stdio.h>
+#include "station.h"
 
 int main(void) {
-    
-    int scores[] = {67, 77, 71, 52, 63};
-    int size = sizeof(scores) / sizeof(scores[0]);
-    printf("Size of scores[]: %d\n", size);
-    print_scores(scores, size);
+    int n = 5;
+    printf("Making log...\n");
+    int *arr = make_log(n);
 
+    for (int i = 0; i < n; i++) {
+        arr[i] = i * 3 + 70;
+    }
 
-    printf("score_at(scores, size, 3): %d\n", score_at(scores, size, 3));
-    printf("score_at(scores, size, 5): %d\n", score_at(scores, size, 5));
+    print_log(arr, n);
 
-    printf("Sum of scores: %d\n", sum_scores(scores, size));
-    printf("Max score: %d\n", max_score(scores, size));
+    printf("Growing log...\n");
 
-    printf("Number of scores in array that are at least 67: %d\n", count_at_least(scores, size, 67));
+    int larger_n = 10;
+    int * temp = grow_log(arr, n, larger_n);
 
-    int board[3][GAMES] = {
-        {55, 66, 77, 88},
-        {64, 73, 84, 67},
-        {75, 67, 82, 83}
-    };
+    if (temp == NULL) {
+        free_log(&arr);
+        return 1;
+    }
 
-    print_board(board, 3);
-    printf("Sum of scores on board: %d\n", board_sum(board, 3));
-    
-    printf("Testing print_scores(NULL, 5):\n");
-    print_scores(NULL, 5);
-    printf("Done (should have printed nothing).\n");
+    arr = temp;
+
+    for (int i = n; i < larger_n; i++) {
+        arr[i] = i * 3 + 70;
+    }
+
+    n = larger_n;
+
+    print_log(arr, n);
+    printf("Max Reading: %d\n", max_reading(arr, n));
+
+    printf("Appending 99 and 101...\n");
+
+    temp = append_reading(arr, &n, 99);
+
+    if (temp == NULL) {
+        free_log(&arr);
+        return 1;
+    }
+    arr = temp;
+
+    temp = append_reading(arr, &n, 101);
+
+    if (temp == NULL) {
+        free_log(&arr);
+        return 1;
+    }
+    arr = temp;
+
+    print_log(arr, n);
+
+    printf("Reading at index 2: %d\n", reading_at(arr, n, 2));
+    printf("Reading at index 4: %d\n", reading_at(arr, n, 4));
+
+    printf("Making zero log...\n");
+    int *zero_arr = make_zero_log(n);
+    print_log(zero_arr, n);
+
+    printf("Testing null value...\n");
+    printf("max_reading(NULL, 5): %d\n", max_reading(NULL, 5));
+
+    free_log(&arr);
+    printf("After free_log, pointer is %s", arr == NULL ? "NULL\n" : "Not NULL\n");
+
+    free_log(&zero_arr);
+
+    return 0;
 }

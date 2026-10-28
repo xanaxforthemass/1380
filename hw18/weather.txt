@@ -1,0 +1,21 @@
+Why is log = realloc(log, new_bytes); dangerous if realloc returns NULL?
+    Because if realloc returns NULL, assigning that to log would mean the pointer is lost, but the memory may still be allocated. This would result in a memory leak.
+After a successful realloc that moves the block, what must you assume about the old address?
+    You must assume the old address is no longer valid. If realloc is able to succeed, the old block is freed, so it would become a dangling pointer.
+Name one difference between a leak, a use-after-free, and a double free.
+    A leak wastes memory, while the other two are undefined behavior. A use-after-free attempts to dereference a dangling pointer 
+    while a double free just tries to free memory that has already been freed.
+
+Hand Trace:
+    What you should use as the pointer: Pointer B, since that was the one returned by the successful realloc. It is not safe to read through A, and free should be run on B once it is done being used.
+
+After free_log(&log), why is log[0] = 68; undefined behavior even if it “sometimes works”?
+    This is undefined behavior since it dereferences a null pointer.
+When is calloc a better first allocation than malloc? When is realloc the tool instead of allocating a brand-new array and copying by hand?
+    Calloc is better when you need to be certain the values are zero and not indeterminate. Realloc is the tool because it saves time as opposed to having to allocate new memory, 
+    copy the array, then free the memory all manually.
+
+
+Part C question:
+Why commit a working make_log / print_log before you add realloc, instead of one giant commit at the end?
+    Because if the realloc work breaks anything, you have a commit version you can revert back to. The original version can also be used to compare against the changes added in the new version.
