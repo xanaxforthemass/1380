@@ -1,0 +1,65 @@
+Part A questions:
+
+In the worst case, why must find_code look at every cell?
+    Because if there was a "Blank" picture, and we were looking for a "1", it would never show up. Similarly, a 1 in the bottom-right corner would
+    cause the function to search the whole array up to the last index.
+Why is COLS part of the parameter type pic[][COLS], while the number of rows is a separate argument?
+    COLS must be part of the parameter since C needs to know how wide each row is.
+What does the array store, and where does the printed glyph (such as # or █) come from?
+    The array stores ones and zeros. The printed glyph comes from my logic, which prints out the glyph correlating to the code.
+
+Part B questions:
+
+If set_cell is given row == nrows, why must it refuse the write?
+    Because pic[row][COLS] would be out of bounds. Lets say you have 3 rows. Since they are zero-indexed, index 3 would be the fourth, which is outside of the array.
+Row-major order means the scan finishes a row before it starts the next. What is the flat index of pic[2][3] when COLS is 5?
+    13.
+
+Part C:
+
+Time output:
+
+    real    0m0.004s
+    user    0m0.001s
+    sys     0m0.001s
+
+GDB transcript:
+
+(gdb) break main.c:26
+Breakpoint 1 at 0x1315: file main.c, line 26.
+(gdb) run
+Starting program: /home/david/c23/general/hw20/picture 
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) n
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+.███.
+█...█
+█████
+█...█
+█...█
+Trying to find '2' with find_code(pic, nrows, 2): -1
+Trying to find '1' with find_code(pic, nrows, 1): 1
+Setting pic[0][2] to '2'...
+
+Breakpoint 1, main () at main.c:26
+26          print_picture(pic, nrows);
+(gdb) print pic[0][0]@COLS
+$1 = {0, 1, 2, 1, 0}
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 25771] will be killed.
+
+Quit anyway? (y or n) y
+
+Part C questions:
+What does time tell you that stepping in GDB does not? Why is a 4×5 picture a weak example for a real profiler?
+    Time tells me how long the program took to execute. GDB would be decidedly poor at this, since it often takes time to walk through breakpoints.
+    a 4x5 picture is a weak example since it takes a relatively small amount of processing power. You would be measuring a miniscule portion of processing power over too brief a window of time.
+Why push to the remote in addition to uploading hw20.zip on Canvas?
+    So that I can access the files later on any computer (or share them with others), keep a backup/ history, and to practice using Git.
