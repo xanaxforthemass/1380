@@ -63,3 +63,29 @@ What does time tell you that stepping in GDB does not? Why is a 4×5 picture a w
     a 4x5 picture is a weak example since it takes a relatively small amount of processing power. You would be measuring a miniscule portion of processing power over too brief a window of time.
 Why push to the remote in addition to uploading hw20.zip on Canvas?
     So that I can access the files later on any computer (or share them with others), keep a backup/ history, and to practice using Git.
+
+Git Stuff:
+
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+git log --oneline
+78da74c (HEAD -> main) add main demo and Q&A
+76f4eb9 add library, headers, ai usage log, and gitignore
+c730614 add straggling text changes
+96bdf36 (origin/main, origin/HEAD) fixing issues from naming hw19 wrong
+daa0d2c Restore hw18 assignment
+03850c5 move hw18 to hw19
+7b32c1d add .zip to .gitignore
+f9b1ce1 make some Q&A edits
+db8ea93 add main demo and Q&A file
+3bef43e add gitignore, ai log, library and headers
+ac19b51 add windows metadata files to gitignore
+32479f9 add main demo and Q&A
+6e12383 add headers, library, gitignore and AI log
+05ae18b add git stuff to weather.txt
+8837683 add main demo, Q&A, and AI usage log
