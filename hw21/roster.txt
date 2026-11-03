@@ -32,3 +32,25 @@ After running diff before.txt after.txt, the main difference is that venv/bin ha
 which python
 /home/david/c23/general/hw21/venv/bin/python
 
+
+Git stuff:
+
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+git log --oneline
+8550e92 (HEAD -> main, origin/main, origin/HEAD) add main demo and Q&A section
+30c80db add library, headers, gitignore, and ai usage log
+f57fd4f add git stuff to Q&A
+78da74c add main demo and Q&A
+76f4eb9 add library, headers, ai usage log, and gitignore
+c730614 add straggling text changes
+96bdf36 fixing issues from naming hw19 wrong
+daa0d2c Restore hw18 assignment
+03850c5 move hw18 to hw19
+7b32c1d add .zip to .gitignore
+f9b1ce1 make some Q&A edits
+db8ea93 add main demo and Q&A file
