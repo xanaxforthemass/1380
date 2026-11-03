@@ -1,0 +1,34 @@
+Part A questions:
+
+Why must a C string end with '\0'? What can go wrong if that byte is missing?
+    It must end so different functions in C know where to stop when processing strings Without it, even functions like printf would keep reading memory
+    even past the array bounds, which is undefined behavior.
+Why is char *p = "Wolves"; p[0] = 'w'; unsafe, while changing char name[] = "Wolves"; is allowed?
+    because p is a pointer to a string literal, while name is an array. You can change the value of a particular index of an array, 
+    but modifying a string literal in C is undefined behavior.
+If dest has room for 5 characters including '\0', what should team_copy store when src is "Wolves"?
+    It should truncate to {W, o, l, v, \0} or "Wolv"
+
+Part B questions:
+
+After a truncated team_copy, how do you know the destination is still a valid C string?
+    Because the destination was already a char array, and I made sure the logic terminates the string with '\0'. The index value "i" is declared outside of the loop
+    so I can use this line:  dest[i] = '\0';
+If two different arrays hold the letters W o l v e s \0, why can team_same return 1 even though the arrays are not the same object in memory?
+    This is the point of the function. You are not making sure they are the same reference or pointer, but rather that they contain the exact same characters in the array.
+
+Part C questions:
+
+What a dependency is (give one C example and one Python example from the reading).
+    A dependency is a set of files, a library, or a whole program that another program or library needs in order to function. An example in C would be stdio.h, which we include in nearly every C file.
+    An example in Python would be certifi, which is a dependency of the requests library.
+Why a project should use its own environment instead of changing the Python that came with the operating system.
+    This helps to avoid any conflicts with other dependencies in the native OS (or other projects) and provides much more control as to which dependencies are included when the program runs.
+
+Dependency stuff:
+
+After running diff before.txt after.txt, the main difference is that venv/bin has been added as a prefix to the path, so shell would find it before other system Python directories.
+
+which python
+/home/david/c23/general/hw21/venv/bin/python
+
