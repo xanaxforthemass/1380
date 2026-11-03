@@ -1,0 +1,7 @@
+*.o
+*.exe
+a.out
+roster
+venv/
+before.txt
+after.txt
