@@ -1,0 +1,29 @@
+Part A questions:
+Why prefer strncpy + a forced '\0' over plain strcpy when the destination has a fixed size?
+    Knowing how many characters to copy can help prevent overflow, as you  can limit how many characters get moved to the new string. The forced '\0' ensures that the 
+    destination string is properly terminated, even if the source was too long to fit.
+Before calling strncat, what two numbers do you need so you know how many characters still fit?
+    You need to know the array's current capacity, and the current string length.
+What does strcmp return when the two strings are equal?
+    When two strings are equal, strcmp returns 0.
+
+Part B questions:
+If strstr finds a match, why is the return value a pointer into the original string rather than a new copy?
+    This is because it would be somewhat pointless to copy the pointer. The matching text exists in the original array, and the return value can be used to perform pointer arithmetic, 
+    or to find elements immediately following the matching text.
+After safe_join, how do you know dest is still a valid C string?
+    I know it is still a valid C string because I made sure there was room in the destination array to append the extra portion and strncat will add the null terminator for me.
+
+Part C questions:
+In one sentence each: what is the source for this homework, and what is one artifact you produced by compiling?
+    The source for this homework is main.c and lineup.c. One artifact i produced was the lineup binary file.
+Semantic Versioning uses MAJOR.MINOR.PATCH. In one sentence each, what kind of change bumps PATCH, MINOR, and MAJOR?
+    Patch usually refers to smaller bug fixes. Minor may  add new functionality, but is still backwards compatible. Major usually refers to breaking changes that would require new code.
+Suppose your lineup helper is version 1.2.3. You only fix a bug in safe_join and keep the same function names. What version number would you ship next, and why?
+    I would ship 1.2.4, since I only made a small bug fix that did not introduce new functionality like a minor change and did not make any breaking changes, or changes that may have affected backwards compatibility.
+
+Why is giving a classmate only your .c files different from giving them the compiled lineup program?
+    Because my classmate would still need to compile my c files. If he had access to the executable, he could run it as long as he knew what folder it was in.
+
+Git stuff:
+
