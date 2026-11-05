@@ -27,3 +27,22 @@ Why is giving a classmate only your .c files different from giving them the comp
 
 Git stuff:
 
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+git log --oneline
+296f854 (HEAD -> main, origin/main, origin/HEAD) update root gitignore
+6125fb5 add main demo and Q&A portion
+beb24d1 add headers, library, ai usage log and gitignore
+9eeeef0 add latest hands-on work
+c97f26f add git stuff
+8550e92 add main demo and Q&A section
+30c80db add library, headers, gitignore, and ai usage log
+f57fd4f add git stuff to Q&A
+78da74c add main demo and Q&A
+76f4eb9 add library, headers, ai usage log, and gitignore
+c730614 add straggling text changes
+96bdf36 fixing issues from naming hw19 wrong
