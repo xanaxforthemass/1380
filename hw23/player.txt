@@ -1,0 +1,30 @@
+1. In one sentence, why put name, jersey, and points in one struct instead of three separate variables?
+    Because it makes it easier to see that each name, jersey, and points are attached to a particular player instead of trying to manage 15 different vairables.
+2. What does p->jersey mean, and how is it different from p.jersey?
+    p->jersey is how you refer to the jersey member in the struct when p is a pointer. This is different from p.jersey, which is how you would manipulate the member without a direct pointer.
+3. Why must init_player leave room for '\0' when copying into name[32]?
+    Because without a null terminator, the char array is not a string, and this can cause issues with functions that search for the null terminator. They could run for quite
+    some time and the behavior is undefined.
+
+Part B questions:
+
+4. Why does add_points take struct Player * instead of struct Player by value?
+    So that it can directly manipulate the value at the indicated address, making the intended change without making the copy of a struct
+5. If you have struct Player roster[3], how do you pass the second player to print_player?
+    print_player(&roster[1])
+
+Part C questions:
+(I skipped the optional try-it)
+
+6. In one or two sentences: what is a coding agent, and how is it different from plain autocomplete that only suggests the next few tokens?
+    A coding agent is an AI model with access to tools that can read and write files, search the web, and invoke shell commands. This is different from autocomplete because it can use tools,
+    accomplishing tasks by examining files, editing code, and running texts.
+7. The lecture suggests thinking of yourself as a manager of an intern. Give one concrete example of guidance or correction you would give an agent working on init_player.
+    Other than just explaining the struct I want it to initialize, I would guide it by saying "ensure you check the pointer for NULL, limit the char array to 31 characters + '\0' and to set NAME to an empty string if NULL.
+8. Name two risks from What to watch out for (mistakes, overreliance, security bugs, rabbit holes, …). For each, write one sentence on what you will do differently.
+    1. Debugging spirals- I will make sure to debug on my own alongside the agent to ensure it does not get lost
+    2. Mistakes- I will double check the output I get from AI, and make sure I understand what it is doing.
+9. In one sentence: why do many agent tools ask you to confirm a shell or file-edit tool call before it runs?
+    Since agents can make mistakes, it makes sense to double check what files you allow them to edit or what shell commands you allow them to run.
+10. After an agent edits your C file, what is one check you should run before you trust the change (compile, run the demo, re-read the diff, …)?
+    I would check the code myself to see what changes were made and make sure they make sense.
