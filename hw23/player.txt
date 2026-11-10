@@ -28,3 +28,26 @@ Part C questions:
     Since agents can make mistakes, it makes sense to double check what files you allow them to edit or what shell commands you allow them to run.
 10. After an agent edits your C file, what is one check you should run before you trust the change (compile, run the demo, re-read the diff, …)?
     I would check the code myself to see what changes were made and make sure they make sense.
+
+Git Stuff:
+
+git  status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+git log --oneline
+72104c9 (HEAD -> main) Add main fr this time
+69333bd Add main demo and Q&A
+3483b52 Add library, headers, AI usage log and gitignore
+d904e3f (origin/main, origin/HEAD) add git stuff
+296f854 update root gitignore
+6125fb5 add main demo and Q&A portion
+beb24d1 add headers, library, ai usage log and gitignore
+9eeeef0 add latest hands-on work
+c97f26f add git stuff
+8550e92 add main demo and Q&A section
+30c80db add library, headers, gitignore, and ai usage log
+f57fd4f add git stuff to Q&A
