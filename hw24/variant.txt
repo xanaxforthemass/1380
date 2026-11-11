@@ -31,3 +31,24 @@ Part C questions:
 11. When would you start a new agent conversation instead of continuing a long one about an unrelated homework?
     I would start a new conversation anytime I am working on something unrelated to the context so far. If I have been talking about how to cook potatoes, 
     I do not need that context for a conversation about coding and vice versa. The same applies to separate, unrelated programs.
+
+Git stuff:
+
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+add main demo and Q&A
+ab0b7d9 add library, headers, gitignore, and AI usage log
+2b600bf Add git stuff after commits
+72104c9 Add main fr this time
+69333bd Add main demo and Q&A
+3483b52 Add library, headers, AI usage log and gitignore
+d904e3f add git stuff
+296f854 update root gitignore
+6125fb5 add main demo and Q&A portion
+beb24d1 add headers, library, ai usage log and gitignore
+9eeeef0 add latest hands-on work
+c97f26f add git stuff
