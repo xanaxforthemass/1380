@@ -1,0 +1,33 @@
+Part A questions:
+
+1. In one sentence, how does a union differ from a struct in how members share (or do not share) memory?
+    In a union, all members share the memory whereas a struct provides memory for each individual member.
+2. Why is it unsafe to read value.average after you only called set_score?
+    Because the union currently contains the bits to represent an integer. The program would then attempt to interpret the bits as a float instead of converting to a float.
+3. What job does the kind field do in struct Stat?
+    It specifies whether I am working with a score or an average, so I can plan around using an int or a float, respectively.
+
+Part B questions:
+
+4. Why do get_score and get_average check kind before returning a member?
+    This is to prevent similar behavior as question 2, where C might interpret one value as a different type. Additionally, it makes for a clean program that checks
+    that it is using the type it expects (assuming the tag has been kept up-to-date).
+5. If print_sizes shows the union smaller than the two-field struct, what does that tell you about how the union stores its members?   
+    This tells me that the union stores its members in a shared space instead of separate space for each member.
+
+Part C questions:
+
+6. In one sentence: what problem does clearing the context (starting a new chat) solve?
+    Clearing the context can prevent degradation and context overflow as the conversation grows longer.
+7. In one sentence: what is compaction, in the lecture’s sense (you do not need implementation detail)?
+    Agents are able to summarize the conversation in order to help control the size of the context window.
+8. In one or two sentences: what is AGENTS.md for, and how is that different from pasting the same advice into every prompt?
+    This is for advice that may be common across different sessions, like type-checking. This is different from pasting the same advice in every prompt because 
+    it is loaded automatically into the context window
+9. Give one standing rule you would put in an AGENTS.md for CS 1380 C homework (for example: always compile with -Wall -Wextra -Wpedantic -std=c23).
+    Always include a short comment block at the top of any C files with my name and a brief description of the program.
+10. In one sentence: why is it risky to let an agent run shell commands with no confirmation?
+    Because shell commands have a ton of sensitive and powerful access, and AI can make mistakes.
+11. When would you start a new agent conversation instead of continuing a long one about an unrelated homework?
+    I would start a new conversation anytime I am working on something unrelated to the context so far. If I have been talking about how to cook potatoes, 
+    I do not need that context for a conversation about coding and vice versa. The same applies to separate, unrelated programs.
