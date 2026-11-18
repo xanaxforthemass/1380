@@ -1,0 +1,38 @@
+Part A Hand Trace:
+factorial (4) -> factorial(3) -> factorial(2) -> factorial(1) = 1
+unwinds: 
+1 * 2 = 2 
+2 * 3 = 6
+6 * 4  = 24
+returns 24
+Part A questions:
+1. What are the base case and recursive case for your factorial?
+    The base case  is n <= 1. The recursive case is n * factorial(n - 1).
+2. What goes wrong if you omit the base case?
+    Infinite recursion can lead to stack overflow.
+3. Why does naive fib(n) repeat work? (One or two sentences is enough.)
+    Naive fib(n) repeats work because it does not remember previous values that may have already been calculated, such as fib(2)
+    being calculated once as the n-2 in fib(4), and once as the n-1 in fib(3).
+
+Part B questions:
+4. For max_in_array, what shrinks on each recursive call?
+    n shrinks in each call.
+5. When might a loop be a better fit than recursion for scanning an array?
+    I would say this is the case on any linear traversal of an array, as you can just plug in the size of the array as the condition and use the current
+    value of i as the index.
+
+Part C stuff:
+    Worthwhile comment added to code line #57
+One weak subject turned into a better problem -> solution style message:
+    "Fix bug in main" -> "change huge_arr to a copied version to prevent mutation"
+
+6. Give one example of a useless comment and one helpful comment for this project.
+    Useless: max_in_array returns an int. Helpful comment(above fibonacci()): This function is a simplified version that repeats calculations for the same numbers, making it inefficient for large n.
+7. What would be lost if your why comment were deleted?
+    Helpful insight into the reason I wrote a non-trivial line of code would be lost.
+8. Which of your commit messages best captures why, and why is it better than fix?
+    "implement recursive functions and demonstrations" is better than "fix" because it identifies the functionality being added, and its purpose.
+9. List four things a good bug report should include.
+    Environment information, expected vs actual behavior, steps to reproduce, and any troubleshooting steps you have already taken.
+10. If an LLM helped you write or debug recursion, what should you disclose — and what should you not submit if you cannot explain it?
+    You should disclose that an LLM helped you write the code. You should not submit a PR for any code that you do not understand- that can push unnecessary work onto a busy maintainer.
