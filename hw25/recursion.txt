@@ -36,3 +36,26 @@ One weak subject turned into a better problem -> solution style message:
     Environment information, expected vs actual behavior, steps to reproduce, and any troubleshooting steps you have already taken.
 10. If an LLM helped you write or debug recursion, what should you disclose — and what should you not submit if you cannot explain it?
     You should disclose that an LLM helped you write the code. You should not submit a PR for any code that you do not understand- that can push unnecessary work onto a busy maintainer.
+
+Git stuff:
+
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+git log --oneline
+78d4207 (HEAD -> main) ignore any file starting with hands_on
+3d94c2e Document recursion traces and design choices
+777815a Implement recursive functions & demonstrations
+d79b6ca (origin/main, origin/HEAD) add git commit log to Q&A
+2cd7743 add main demo and Q&A
+ab0b7d9 add library, headers, gitignore, and AI usage log
+2b600bf Add git stuff after commits
+72104c9 Add main fr this time
+69333bd Add main demo and Q&A
+3483b52 Add library, headers, AI usage log and gitignore
+d904e3f add git stuff
+296f854 update root gitignore
