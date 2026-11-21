@@ -29,3 +29,25 @@ Commit rewrite: Fixed stuff -> change variables to const to prevent overwrites
     You should disclose that an LLM helped you write the code. You should not submit a pr or claim any code that you do not understand. You may push responsibility of bad code to others, 
     and would look bad doing it, if you took credit for it.
     
+Git stuff:
+
+git log --oneline
+60e897e (HEAD -> main) change gitignore to ignore output files
+4788a67 Add README
+1b376be Implement program demoing binary fwrite with structs
+dac894f implement non-mutating text copy program
+e95f7d0 implement program demoing read/write from file
+8764523 add text files, gitignore, and ai usage log
+cd51f64 (origin/main, origin/HEAD) ignore any file starting with hands_on
+3d94c2e Document recursion traces and design choices
+777815a Implement recursive functions & demonstrations
+d79b6ca add git commit log to Q&A
+2cd7743 add main demo and Q&A
+ab0b7d9 add library, headers, gitignore, and AI usage log
+
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean

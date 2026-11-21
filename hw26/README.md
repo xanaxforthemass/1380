@@ -7,7 +7,7 @@ This project demonstrates basic file operations in C. It covers reading and writ
 File I/O allows programs to be saved, to be exported, and to exist beyond a single run of the program.
 
 ## How do I use it?
-All compiled files can be run from the terminal.
+All compiled files can be run from the terminal, and don't require further input.
 
 For example:
 
