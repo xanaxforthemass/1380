@@ -1,0 +1,31 @@
+Part A questions:
+1. What does fopen return on failure, and what should you do before using the FILE *?
+    fopen returns NULL on failure, and you should check for this before using the FILE pointer.
+2. Name two common file modes and when you would use each.
+    "r", when I would want to read from a file, and "w", when I want to write to a file.
+3. Why should every successful fopen have a matching fclose on every exit path?
+    To prevent resource leaks or data corruption.
+
+Part B Questions:
+4. When is fgets a better choice than fscanf for reading a whole line?
+    Whenever you aren't sure about the structure of the lines you will be reading, or if the lines are not standardized.
+5. In one sentence, how does binary fwrite of a struct differ from writing the same fields as text with fprintf?
+    binary fwrite writes the struct in binary, whereas fprintf would convert the fields to text before writing them to a file.
+
+Part C questions:
+
+Commit rewrite: Fixed stuff -> change variables to const to prevent overwrites
+
+6. How do you check whether a file operation succeeded (name at least two return values you inspect)?
+    I would check return values, such as checking if the file stream returned from fopen is NULL, or checking if the count returned from an fread or fwrite is unexpected.
+7. Does your README put usage before build steps? Why does that order matter?
+    Because people looking at my program would want to know if they even want to use it before looking into how to access the program.
+8. Give one useless comment and one helpful comment for a file-I/O function.
+    Useless comment: // "r" is used here to read the file
+    Helpful comment: // player_count was calculated so the size of the array can easily be changed
+9. List four things a good bug report should include.
+    Environment information, expected vs actual behavior, steps to reproduce, and any troubleshooting steps you have already taken.
+10. If an LLM helped you write or debug recursion, what should you disclose — and what should you not submit if you cannot explain it?
+    You should disclose that an LLM helped you write the code. You should not submit a pr or claim any code that you do not understand. You may push responsibility of bad code to others, 
+    and would look bad doing it, if you took credit for it.
+    
